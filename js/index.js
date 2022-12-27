@@ -21,9 +21,23 @@ let fruitsJSON = `[
 ]`;
 
 // преобразование JSON в объект JavaScript
-let fruits = JSON.parse(fruitsJSON);
+var fruits = JSON.parse(fruitsJSON);
+
+
+console.log(typeof(fruits));
+
+
+
+for (const property in fruits) {
+  console.log(`${kind}: ${fruits[kind]}`);
+}
+
+
+
+
 
 /*** ОТОБРАЖЕНИЕ ***/
+
 
 // отрисовка карточек
 const display = () => {
@@ -33,8 +47,24 @@ const display = () => {
   for (let i = 0; i < fruits.length; i++) {
     // TODO: формируем новый элемент <li> при помощи document.createElement,
     // и добавляем в конец списка fruitsList при помощи document.appendChild
+    const li1 = document.createElement("li");
+
+    //li1.className = "fruit__item fruit_violet";//
+    li1.innerHTML = fruits;
+    fruitsList.appendChild(li1);
+   
+  
+
   }
 };
+
+
+
+
+
+
+
+
 
 // первая отрисовка карточек
 display();
@@ -132,3 +162,6 @@ addActionButton.addEventListener('click', () => {
   // необходимые значения берем из kindInput, colorInput, weightInput
   display();
 });
+
+
+
