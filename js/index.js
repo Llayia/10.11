@@ -26,11 +26,10 @@ var fruits = JSON.parse(fruitsJSON);
 
 console.log(typeof(fruits));
 
+console.log(fruits[1]);
+console.log(fruits[1]['kind']);
 
 
-for (const property in fruits) {
-  console.log(`${kind}: ${fruits[kind]}`);
-}
 
 
 
@@ -48,19 +47,15 @@ const display = () => {
     // TODO: формируем новый элемент <li> при помощи document.createElement,
     // и добавляем в конец списка fruitsList при помощи document.appendChild
     const li1 = document.createElement("li");
-
-    //li1.className = "fruit__item fruit_violet";//
-    li1.innerHTML = fruits;
+    // li1.className = "fruit__item fruit_violet";//
+    let fruitKind = fruits[i]['kind']
+    let fruitColor = fruits[i]['color']
+    let fruitWeight = fruits[i]['weight']
+    li1.innerHTML = `${fruitKind} ${fruitColor}  ${fruitWeight} `;
     fruitsList.appendChild(li1);
-   
-  
 
   }
 };
-
-
-
-
 
 
 
