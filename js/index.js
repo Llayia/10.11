@@ -88,14 +88,13 @@ let randomValue = getRandomInt ()
 // перемешивание массива
 const shuffleFruits = () => {
   var result = [];
-  for (let k = 0; k < fruits.lngth; k++) {
+  for (let k = 0; k < fruits.length; k++) {
     console.log('k') + console.log(k)
     console.log('length') + console.log(fruits.length)
   var newValue1 = fruits[randomValue]
-  fruits.splice(randomValue,1);
+  
   result.push(newValue1);
-
- 
+  fruits.splice(randomValue,1);
 
 
 //  let k = fruits.length ;
