@@ -24,14 +24,6 @@ let fruitsJSON = `[
 var fruits = JSON.parse(fruitsJSON);
 
 
-console.log(typeof(fruits));
-
-console.log(fruits[1]);
-console.log(fruits[1]['kind']);
-
-
-
-
 
 
 
@@ -47,14 +39,34 @@ const display = () => {
     // TODO: формируем новый элемент <li> при помощи document.createElement,
     // и добавляем в конец списка fruitsList при помощи document.appendChild
     const li1 = document.createElement("li");
-    // li1.className = "fruit__item fruit_violet";//
-    let fruitKind = fruits[i]['kind']
-    let fruitColor = fruits[i]['color']
-    let fruitWeight = fruits[i]['weight']
-    li1.innerHTML = `${fruitKind} ${fruitColor}  ${fruitWeight} `;
+    // li1.className = "fruit__item fruit_violet";
+    var fruitKind = fruits[i]['kind']
+    var fruitColor = fruits[i]['color']
+    var fruitWeight = fruits[i]['weight']
+    li1.innerHTML = `<div class="fruit__info">index: ${i}<br> kind: ${fruitKind} <br> color: ${fruitColor} <br> weight (kg) ${fruitWeight}</div> `;
     fruitsList.appendChild(li1);
-
+    if (fruitKind === "Мангустин") {
+      li1.className = "fruit__item fruit_violet";
+    } else {
+      if (fruitKind === "Дуриан") {
+        li1.className = "fruit__item fruit_green";
+      } else {
+        if (fruitKind === "Личи") {
+          li1.className = "fruit__item fruit_carmazin";
+      } else {
+        if (fruitKind === "Личи") {
+          li1.className = "fruit__item fruit_carmazin";
+        }else {
+          if (fruitKind === "Карамбола") {
+            li1.className = "fruit__item fruit_yellow";
+          }else {
+            if (fruitKind === "Тамаринд") {
+              li1.className = "fruit__item fruit_lightbrown";
+            }
+      }}}
+    }
   }
+}
 };
 
 
@@ -67,22 +79,41 @@ display();
 /*** ПЕРЕМЕШИВАНИЕ ***/
 
 // генерация случайного числа в заданном диапазоне
-const getRandomInt = (min, max) => {
+const getRandomInt = (min=0, max=fruits.length-1) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+let randomValue = getRandomInt ()
+
 
 // перемешивание массива
 const shuffleFruits = () => {
-  let result = [];
+  var result = [];
+  for (let k = 0; k < fruits.lngth; k++) {
+    console.log('k') + console.log(k)
+    console.log('length') + console.log(fruits.length)
+  var newValue1 = fruits[randomValue]
+  fruits.splice(randomValue,1);
+  result.push(newValue1);
 
-  // ATTENTION: сейчас при клике вы запустите бесконечный цикл и браузер зависнет
-  while (fruits.length > 0) {
+ 
+
+
+//  let k = fruits.length ;
+//   while (fruits.length  !=  0) {
+//     k--
+//     fruits.splice(randomValue,1);
+//     result.push(fruits[randomValue]);
+ 
+
+// while (fruits.length  > 0) {
+
+
     // TODO: допишите функцию перемешивания массива
     //
     // Подсказка: находим случайный элемент из fruits, используя getRandomInt
     // вырезаем его из fruits и вставляем в result.
     // ex.: [1, 2, 3], [] => [1, 3], [2] => [3], [2, 1] => [], [2, 1, 3]
-    // (массив fruits будет уменьшатся, а result заполняться)
+    // (массив fruits будет уменьшатся, а result заполняться
   }
 
   fruits = result;
@@ -157,6 +188,5 @@ addActionButton.addEventListener('click', () => {
   // необходимые значения берем из kindInput, colorInput, weightInput
   display();
 });
-
 
 
