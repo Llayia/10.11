@@ -92,19 +92,11 @@ const shuffleFruits = () => {
     var newValue1 = fruits[randomValue];
     console.log('k') + console.log(k);
     console.log('length') + console.log(fruits.length);
-  result.push(newValue1);
-  fruits.splice(randomValue,1);
+    result.push(newValue1);
+    fruits.splice(randomValue,1);
 
 
-//  let k = fruits.length ;
-//   while (fruits.length  !=  0) {
-//     k--
-//     fruits.splice(randomValue,1);
-//     result.push(fruits[randomValue]);
  
-
-// while (fruits.length  > 0) {
-
 
     // TODO: допишите функцию перемешивания массива
     //
