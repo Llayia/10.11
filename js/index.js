@@ -82,17 +82,16 @@ display();
 const getRandomInt = (min=0, max=fruits.length-1) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
-let randomValue = getRandomInt ()
 
 
 // перемешивание массива
 const shuffleFruits = () => {
   var result = [];
-  for (let k = 0; k < fruits.length; k++) {
-    console.log('k') + console.log(k)
-    console.log('length') + console.log(fruits.length)
-  var newValue1 = fruits[randomValue]
-  
+  for (let k = fruits.length; fruits.length != 0; k--) {
+    var randomValue = getRandomInt ();
+    var newValue1 = fruits[randomValue];
+    console.log('k') + console.log(k);
+    console.log('length') + console.log(fruits.length);
   result.push(newValue1);
   fruits.splice(randomValue,1);
 
